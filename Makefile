@@ -26,7 +26,7 @@ src-pkg:
 docs:
 	./tools/foreach './scripts/clean emulators && ./scripts/build emulators'
 
-world: RK3588 RK3576 RK3566 RK3326 RK3399 S922X SM8250 SM8550 H700 SM8650
+world: RK3588 RK3566 RK3326 RK3399 S922X SM8250 SM8550 H700 SM8650 SM8750
 
 kconfig-olddefconfig-%:
 	DEVICE=$* ./tools/adjust_kernel_config olddefconfig
@@ -38,11 +38,6 @@ RK3588:
 	unset DEVICE_ROOT
 	PROJECT=ROCKNIX DEVICE=RK3588 ARCH=arm ./scripts/build_distro
 	PROJECT=ROCKNIX DEVICE=RK3588 ARCH=aarch64 ./scripts/build_distro
-
-RK3576:
-	unset DEVICE_ROOT
-	PROJECT=ROCKNIX DEVICE=RK3576 ARCH=arm ./scripts/build_distro
-	PROJECT=ROCKNIX DEVICE=RK3576 ARCH=aarch64 ./scripts/build_distro
 
 S922X:
 	unset DEVICE_ROOT
@@ -69,10 +64,10 @@ H700:
 	PROJECT=ROCKNIX DEVICE=H700 ARCH=arm ./scripts/build_distro
 	PROJECT=ROCKNIX DEVICE=H700 ARCH=aarch64 ./scripts/build_distro
 
-SM6115:
+SDM845:
 	unset DEVICE_ROOT
-	PROJECT=ROCKNIX DEVICE=SM6115 ARCH=arm ./scripts/build_distro
-	PROJECT=ROCKNIX DEVICE=SM6115 ARCH=aarch64 ./scripts/build_distro
+	PROJECT=ROCKNIX DEVICE=SDM845 ARCH=arm ./scripts/build_distro
+	PROJECT=ROCKNIX DEVICE=SDM845 ARCH=aarch64 ./scripts/build_distro
 
 SM8250:
 	unset DEVICE_ROOT
@@ -87,6 +82,10 @@ SM8550:
 SM8650:
 	unset DEVICE_ROOT
 	PROJECT=ROCKNIX DEVICE=SM8650 ARCH=aarch64 ./scripts/build_distro
+
+SM8750:
+	unset DEVICE_ROOT
+	PROJECT=ROCKNIX DEVICE=SM8750 ARCH=aarch64 ./scripts/build_distro
 
 update:
 	PROJECT=ROCKNIX DEVICE=RK3588 ARCH=aarch64 ./scripts/update_packages
